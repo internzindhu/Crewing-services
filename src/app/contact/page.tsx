@@ -1,5 +1,6 @@
 'use client';
 
+import Footer from '@/components/Footer';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -12,9 +13,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
     console.log('Form submitted:', formData);
-    // Reset form
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -27,36 +26,51 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Contact Usssss</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-            <div className="space-y-4">
-              <p>
-                We&apos;d love to hear from you. Please fill out the form or use our contact information below.
-              </p>
+    <div className='flex flex-col min-h-screen'>
+    <main className="min-h-screen bg-sky-100 text-black font-sans pb-10">
+      <div className="relative w-full h-[70vh] flex items-center justify-center ">
+      <div className="absolute inset-0 bg-[url('/port2.jpg')] bg-cover bg-bottom bg-fixed" style={{ zIndex: 0 }}></div>
+
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
+        <div className="relative z-20 text-white text-center px-6 py-8" data-aos="fade-up">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">Contact Us</h1>
+          <p className="text-lg max-w-3xl mx-auto">
+            Pioneering innovation in marine development and maritime services across Sri Lanka.
+          </p>
+        </div>
+      </div>
+      <div className="max-w-6xl mx-auto">
+       
+
+        <div className="grid grid-cols-1 md:grid-cols-2 py-16 mt-15 gap-10">
+          {/* Contact Info */}
+          <div className="bg-white p-8 rounded-2xl shadow-lg space-y-6" data-aos="fade-right">
+            <h2 className="text-3xl font-semibold text-blue-900">Get in Touch</h2>
+            <p className="text-gray-700">
+              We’d love to hear from you. Please fill out the form or reach us through the contact details below.
+            </p>
+
+            <div className="space-y-4 text-gray-800">
               <div>
-                <h3 className="font-semibold">Address</h3>
+                <h3 className="font-semibold text-orange-500">Address</h3>
                 <p>123 Marine Drive<br />Ocean City, MC 12345</p>
               </div>
               <div>
-                <h3 className="font-semibold">Email</h3>
+                <h3 className="font-semibold text-orange-500">Email</h3>
                 <p>info@devmarine.com</p>
               </div>
               <div>
-                <h3 className="font-semibold">Phone</h3>
+                <h3 className="font-semibold text-orange-500">Phone</h3>
                 <p>+1 (555) 123-4567</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Contact Form */}
+          <div className="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-left">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1">
+                <label htmlFor="name" className="block text-sm font-semibold mb-1 text-blue-900">
                   Name
                 </label>
                 <input
@@ -65,13 +79,13 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1">
+                <label htmlFor="email" className="block text-sm font-semibold mb-1 text-blue-900">
                   Email
                 </label>
                 <input
@@ -80,13 +94,13 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-1">
+                <label htmlFor="subject" className="block text-sm font-semibold mb-1 text-blue-900">
                   Subject
                 </label>
                 <input
@@ -95,13 +109,13 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">
+                <label htmlFor="message" className="block text-sm font-semibold mb-1 text-blue-900">
                   Message
                 </label>
                 <textarea
@@ -110,21 +124,41 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-3 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                className="w-full bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Send Message
               </button>
             </form>
           </div>
         </div>
+        {/* CV Upload Section */}
+{/* CV Registration Redirect Section */}
+<div className="bg-white p-8 rounded-2xl shadow-lg mt-10" data-aos="fade-up">
+  <h2 className="text-2xl font-semibold text-blue-900 mb-4">Interested in Joining Us?</h2>
+  <p className="text-gray-700 mb-6">
+    Instead of uploading a file, please fill out our candidate registration form.
+  </p>
+  <a
+    href="https://candidates.devmarinesl.com/registercandidate"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block w-full text-center bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium"
+  >
+    Go to Candidate Registration
+  </a>
+</div>
+
+
       </div>
     </main>
+    <Footer backgroundImage='/port2.jpg' />
+    </div>
   );
-} 
+}

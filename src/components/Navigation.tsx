@@ -15,21 +15,24 @@ export default function Navigation() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-    { name: "News", path: "/news" },
+    { name: "Services", path: "/news" },
+    { name: "FAQ", path: "/faq" },
+    { name: "Contact Us", path: "/contact" },
+    
   ];
 
   return (
+    
     <nav
-      className={`bg-[#00000050] backdrop-blur-md absolute top-0 left-0 w-full z-10 transition-opacity duration-1000 ${
-        mounted ? "opacity-100" : "opacity-0"
+      className={`bg-[#00000050] backdrop-blur-2xl absolute top-0 left-0 w-full z-100 transition-opacity duration-1000 ${
+        mounted ? "opacity-100" : "opacity-100"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <img src="/logo2.png" alt="Logo" className="h-9 w-auto" />
+          <Link href="/" className="flex items-center mt-7">
+            <img src="/logo3.png" alt="Logo" className="h-52 w-auto" />
           </Link>
 
           {/* Nav Items */}
@@ -43,7 +46,7 @@ export default function Navigation() {
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
                     ${
                       isActive
-                        ? "bg-none text-yellow-500 shadow-md"
+                        ? "bg-none text-yellow-500 "
                         : "text-white hover:text-yellow-400 hover:text-white"
                     } group`}
                 >
