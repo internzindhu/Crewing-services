@@ -49,7 +49,7 @@ export default function About() {
         </div>
 
         {/* Message from Chief Officer */}
-        <div className="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-up">
+        {/* <div className="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Message from the Chief Officer</h2>
           <div className="flex flex-col md:flex-row items-center gap-6">
             <img
@@ -76,13 +76,14 @@ export default function About() {
               </span>
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Our Team */}
         <div className="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Meet Our Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
+              { name: 'Capt. Srimal Abeyasuriya', title: 'Chief Operating Officer', img: '/capt.png' },
               { name: 'Ajith Rathnayake', title: 'Crew Manager', img: '/ajith.jpeg' },
               { name: 'Shyamal Hennayake', title: 'Operations Manager', img: '/shyamal.png' },
               { name: 'Lasantha Nawarathne', title: 'Training Manager', img: '/lasantha.png' },
