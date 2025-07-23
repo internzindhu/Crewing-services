@@ -29,7 +29,7 @@ export default function Contact() {
     <div className='flex flex-col min-h-screen'>
     <main className="min-h-screen bg-sky-100 text-black font-sans pb-10">
       <div className="relative w-full h-[70vh] flex items-center justify-center ">
-      <div className="absolute inset-0 bg-[url('/port2.jpg')] bg-cover bg-bottom bg-fixed" style={{ zIndex: 0 }}></div>
+      <div className="absolute inset-0 bg-[url('/crew5.jpg')] bg-cover bg-bottom bg-fixed" style={{ zIndex: 0 }}></div>
 
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <div className="relative z-20 text-white text-center px-6 py-8" data-aos="fade-up">
@@ -53,15 +53,15 @@ export default function Contact() {
             <div className="space-y-4 text-gray-800">
               <div>
                 <h3 className="font-semibold text-orange-500">Address</h3>
-                <p>123 Marine Drive<br />Ocean City, MC 12345</p>
+                <p>37/33,<br /> Bullers Lane, Colombo 07</p>
               </div>
               <div>
                 <h3 className="font-semibold text-orange-500">Email</h3>
-                <p>info@devmarine.com</p>
+                <p>info@devmarinesl.com</p>
               </div>
               <div>
                 <h3 className="font-semibold text-orange-500">Phone</h3>
-                <p>+1 (555) 123-4567</p>
+                <p>+94 11 2 676 230</p>
               </div>
             </div>
           </div>

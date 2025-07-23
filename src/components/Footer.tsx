@@ -40,16 +40,16 @@ export default function Footer({ backgroundImage }: { backgroundImage: string })
         <div>
           <h3 className="text-lg font-semibold mb-4 text-yellow-400">Contact</h3>
           <ul className="text-sm text-gray-300 space-y-2">
-            <li>Email: <a href="mailto:crewing@zindhu.lk" className="hover:text-yellow-400">crewing@zindhu.lk</a></li>
-            <li>Phone: <a href="tel:+94112345678" className="hover:text-yellow-400">+94 (0)11 2XXXXXX</a></li>
-            <li>Location: 123 Marine Drive, Colombo, Sri Lanka</li>
+            <li>Email: <a href="mailto:crewing@zindhu.lk" className="hover:text-yellow-400">crewinnnng@zindhu.lk</a></li>
+            <li>Phone: <a href="tel:+94112345678" className="hover:text-yellow-400">+94 11 2 676 230</a></li>
+            <li>37/33, Bullers Lane, Colombo 07</li>
           </ul>
 
-          <div className="flex space-x-4 mt-4">
+          {/* <div className="flex space-x-4 mt-4">
             <a href="#"><Image src="/facebook.svg" alt="Facebook" width={20} height={20} /></a>
             <a href="#"><Image src="/linkedin.svg" alt="LinkedIn" width={20} height={20} /></a>
             <a href="#"><Image src="/instagram.svg" alt="Instagram" width={20} height={20} /></a>
-          </div>
+          </div> */}
 
           {/* Candidate Registration Button */}
           <a

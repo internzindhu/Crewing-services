@@ -18,6 +18,7 @@ export default function Navigation() {
     { name: "Services", path: "/services" },
     { name: "FAQ", path: "/faq" },
     { name: "Contact Us", path: "/contact" },
+    { name: "Careers", path: "/careers" },
     
   ];
 
@@ -32,7 +33,7 @@ export default function Navigation() {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center mt-7">
-            <img src="/logo3.png" alt="Logo" className="h-52 w-auto" />
+            <img src="/logo4.png" alt="Logo" className="h-52 w-auto" />
           </Link>
 
           {/* Nav Items */}

@@ -240,19 +240,30 @@ export default function Home() {
 
       {/* Globe */}
       {/* Image Carousel */}
-<div className="py-12 px-6 mb-10" data-aos="fade-up">
-  <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">Our Fleet & Operations</h2>
-  <div className="overflow-x-auto whitespace-nowrap" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+{/* Our Associate Companies */}
+<div className="bg-white py-12 px-6 mb-10" data-aos="fade-up">
+  <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">
+    Our Associate Companies
+  </h2>
+  <p className="text-lg text-gray-700 text-center mb-10 max-w-2xl mx-auto">
+    We proudly collaborate with globally renowned organizations to deliver unparalleled maritime services:
+  </p>
 
-    <div className="flex gap-4">
-      {["/ship.jpg", "/ship2.jpg", "/ship3.jpg", "/ship4.jpg", "/ship6.jpg"].map((src, idx) => (
-        <div key={idx} className="inline-block min-w-[300px] md:min-w-[400px] rounded-xl overflow-hidden shadow-lg">
-          <img src={src} alt={`Ship ${idx + 1}`} className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-        </div>
-      ))}
-    </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+    {[
+      { src: "/wallemg.jpeg", name: "Wallem Ship Management" },
+      { src: "/marlow.jpeg", name: "Marlow Navigation" },
+      { src: "/rhl.jpg", name: "RHL Hamburger Lloyd" },
+      { src: "/xt.jpg", name: "XT Ship Management" },
+    ].map((company, index) => (
+      <div key={index} className="flex flex-col items-center" data-aos="zoom-in">
+        <img src={company.src} alt={company.name} className="w-24 h-auto mb-4" />
+        <p className="font-semibold text-blue-900 text-center">{company.name}</p>
+      </div>
+    ))}
   </div>
 </div>
+
 
 
       {/* Call to Action */}
