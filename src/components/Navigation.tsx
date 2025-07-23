@@ -19,6 +19,7 @@ export default function Navigation() {
     { name: "FAQ", path: "/faq" },
     { name: "Contact Us", path: "/contact" },
     { name: "Careers", path: "/careers" },
+    { name: "Add Jobs", path: "/addJobs" },
     
   ];
 
