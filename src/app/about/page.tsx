@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 
 
 export default function About() {
@@ -95,9 +96,11 @@ export default function About() {
                 className="bg-blue-50 rounded-xl p-6 text-center shadow-lg"
                 data-aos="zoom-in"
               >
-                <img
+                <Image
                   src={member.img}
                   alt={member.name}
+                  width={96}
+                  height={96}
                   className="w-24 h-24 mx-auto rounded-full object-cover mb-4"
                 />
                 <h3 className="text-lg font-semibold text-blue-800">{member.name}</h3>
@@ -115,9 +118,11 @@ export default function About() {
 
   <div className="flex flex-col md:flex-row-reverse gap-6 items-center">
     {/* Image on the right with animation */}
-    <img
+    <Image
       src="/4.jpg" // Update path as needed
       alt="SMTI Training Center"
+      width={600}
+      height={400}
       data-aos="zoom-in-left"
       className="w-full md:w-1/2 rounded-xl shadow-lg object-cover"
     />
@@ -152,23 +157,23 @@ export default function About() {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     {/* Company 1 */}
     <div className="flex items-center gap-4" data-aos="fade-right">
-      <img src="/wallemg.jpeg" alt="Wallem Ship Management" className="w-24 h-auto" />
+      <Image src="/wallemg.jpeg" alt="Wallem Ship Management" width={96} height={96} className="w-24 h-auto" />
       <p className="font-semibold text-blue-900">Wallem Ship Management</p>
     </div>
     {/* Company 2 */}
     <div className="flex items-center gap-4" data-aos="fade-left">
-      <img src="/marlow.jpeg" alt="Marlow Navigation" className="w-24 h-auto" />
+      <Image src="/marlow.jpeg" alt="Marlow Navigation" width={96} height={96} className="w-24 h-auto" />
       <p className="font-semibold text-blue-900">Marlow Navigation</p>
     </div>
     
     {/* Company 4 */}
     <div className="flex items-center gap-4" data-aos="fade-left">
-      <img src="/rhl.png" alt="RHL Hamburger Lloyd" className="w-24 h-auto" />
+      <Image src="/rhl.png" alt="RHL Hamburger Lloyd" width={96} height={96} className="w-24 h-auto" />
       <p className="font-semibold text-blue-900">RHL Hamburger Lloyd</p>
     </div>
     {/* Company 5 */}
     <div className="flex items-center gap-4" data-aos="fade-right">
-      <img src="/xt.png" alt="XT ship Management" className="w-24 h-auto" />
+      <Image src="/xt.png" alt="XT ship Management" width={96} height={96} className="w-24 h-auto" />
       <p className="font-semibold text-blue-900">XT ship Management</p>
     </div>
   </div>

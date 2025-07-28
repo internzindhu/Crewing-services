@@ -3,16 +3,34 @@
 import Footer from "@/components/Footer";
 import React, { useState, useEffect } from "react";
 
+type Job = {
+  title: string;
+  location: string;
+  category: string;
+  fleet: string;
+  yob: string;
+  dwt: string;
+  teuRef: string;
+  minAge: string;
+  maxAge: string;
+  usVisaRequired: boolean;
+  requirements: string[];
+  link?: string;
+};
+
 const hardcodedJobs = [
   {
     title: "MASTER",
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Master to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "35",
+    maxAge: "55",
+    usVisaRequired: false,
     requirements: [
       "Container experience",
       "Crew mix experience, good English language knowledge",
@@ -24,10 +42,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Chief Officer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "30",
+    maxAge: "50",
+    usVisaRequired: false,
     requirements: [
       "Chief Officer experience",
       "Good English language knowledge",
@@ -39,10 +60,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Second Officer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "25",
+    maxAge: "45",
+    usVisaRequired: false,
     requirements: [
       "Second Officer experience",
       "Good English language knowledge",
@@ -54,10 +78,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for 3O to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Container experience",
       "Crew mix experience, good English language knowledge",
@@ -69,10 +96,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for 4O to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Fourth Officer experience",
       "Good English language knowledge",
@@ -84,10 +114,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Junior Officer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "16",
+    maxAge: "25",
+    usVisaRequired: false,
     requirements: [
       "Junior Officer experience",
       "Good English language knowledge",
@@ -99,10 +132,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Admin Officer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Admin Officer experience",
       "Good English language knowledge",
@@ -114,10 +150,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Deck Cadet to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "16",
+    maxAge: "20",
+    usVisaRequired: false,
     requirements: [
       "Deck Cadet experience",
       "Good English language knowledge",
@@ -129,10 +168,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Bosun to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Bosun experience",
       "Good English language knowledge",
@@ -144,10 +186,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Able Seaman to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Able Seaman experience",
       "Good English language knowledge",
@@ -159,10 +204,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Ordinary Seaman to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "16",
+    maxAge: "25",
+    usVisaRequired: false,
     requirements: [
       "Ordinary Seaman experience",
       "Good English language knowledge",
@@ -174,10 +222,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Deck Hand to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "16",
+    maxAge: "25",
+    usVisaRequired: false,
     requirements: [
       "Deck Hand experience",
       "Good English language knowledge",
@@ -189,10 +240,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Chief Cook to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Chief Cook experience",
       "Good English language knowledge",
@@ -204,10 +258,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Messman/Steward to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Messman/Steward experience",
       "Good English language knowledge",
@@ -219,10 +276,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for General Purpose Crew to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "General Purpose Crew experience",
       "Good English language knowledge",
@@ -234,10 +294,13 @@ const hardcodedJobs = [
     location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
-    announcement: "Looking for Pump Man to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Pump Man experience",
       "Good English language knowledge",
@@ -249,10 +312,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Chief Engineer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "35",
+    maxAge: "55",
+    usVisaRequired: false,
     requirements: [
       "Chief Engineer experience",
       "Good English language knowledge",
@@ -264,10 +330,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Second Engineer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "30",
+    maxAge: "50",
+    usVisaRequired: false,
     requirements: [
       "Second Engineer experience",
       "Good English language knowledge",
@@ -279,10 +348,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Electro Officer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "25",
+    maxAge: "45",
+    usVisaRequired: false,
     requirements: [
       "Electro Officer experience",
       "Good English language knowledge",
@@ -294,10 +366,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Third Engineer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Third Engineer experience",
       "Good English language knowledge",
@@ -309,10 +384,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Fourth Engineer to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Fourth Engineer experience",
       "Good English language knowledge",
@@ -324,10 +402,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Engine Cadet to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "16",
+    maxAge: "20",
+    usVisaRequired: false,
     requirements: [
       "Engine Cadet experience",
       "Good English language knowledge",
@@ -339,10 +420,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Fitter to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Fitter experience",
       "Good English language knowledge",
@@ -354,10 +438,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Motorman/Oiler to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "Motorman/Oiler experience",
       "Good English language knowledge",
@@ -369,10 +456,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Engine Hand to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Engine Hand experience",
       "Good English language knowledge",
@@ -384,10 +474,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
-    announcement: "Looking for Electro Technical Rating to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "Electro Technical Rating experience",
       "Good English language knowledge",
@@ -399,10 +492,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Small Craft/Coastal",
-    announcement: "Looking for SC/COASTAL - MASTER to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "20",
+    maxAge: "40",
+    usVisaRequired: false,
     requirements: [
       "SC/COASTAL - MASTER experience",
       "Good English language knowledge",
@@ -414,10 +510,13 @@ const hardcodedJobs = [
     location: "Szczecin, Poland",
     link: "#",
     category: "Small Craft/Coastal",
-    announcement: "Looking for SC/COASTAL - ENGINEER to join New Build Container 21st July, Urgently!",
+    fleet: "Container",
     yob: "2024",
     dwt: "18700",
     teuRef: "1279/REF:380",
+    minAge: "18",
+    maxAge: "35",
+    usVisaRequired: false,
     requirements: [
       "SC/COASTAL - ENGINEER experience",
       "Good English language knowledge",
@@ -431,7 +530,7 @@ export default function CareersPage() {
   const [location, setLocation] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedJobIndex, setExpandedJobIndex] = useState<number | null>(null);
-  const [adminJobs, setAdminJobs] = useState<any[]>([]);
+  const [adminJobs, setAdminJobs] = useState<Job[]>([]);
 
   const categories = ["All", "Deck", "Engine", "Small Craft/Coastal"];
 
@@ -565,11 +664,15 @@ export default function CareersPage() {
               {isExpanded && (
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-2 text-gray-700 animate-fade-in">
                   <div className="space-y-4">
-                    <div className="text-lg">{job.announcement || `Looking for ${job.title} to join our team!`}</div>
+                    <div className="text-lg font-semibold">Fleet: {job.fleet || 'N/A'}</div>
                     <div className="flex flex-wrap gap-8 text-base">
                       <span>YOB: {job.yob || 'N/A'}</span>
                       <span>DWT: {job.dwt || 'N/A'}</span>
                       <span>TEU: {job.teuRef || 'N/A'}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-8 text-base">
+                      <span>Age: {job.minAge || 'N/A'} - {job.maxAge || 'N/A'}</span>
+                      <span>US Visa: {job.usVisaRequired ? 'Required' : 'Not Required'}</span>
                     </div>
                     <div className="mt-4 font-semibold">Requirements:</div>
                     <ul className="list-none space-y-2 mt-2">

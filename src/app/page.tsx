@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 
 
 const inter = Inter({
@@ -158,9 +159,11 @@ export default function Home() {
         data-aos="zoom-in-up"
       >
         <div className="relative h-56">
-          <img
+          <Image
             src={service.imageUrl}
             alt={service.title}
+            width={400}
+            height={224}
             className="object-cover w-full h-full"
           />
         </div>
@@ -181,9 +184,11 @@ export default function Home() {
   <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
     {/* Images */}
     <div className="flex flex-col gap-4 w-full md:w-1/2">
-      <img
+      <Image
         src="/crew2.jpg"
         alt="Crew at work"
+        width={600}
+        height={256}
         className="rounded-xl shadow-lg w-full h-64 object-cover"
       />
       {/* <img
@@ -257,7 +262,7 @@ export default function Home() {
       { src: "/xt.jpg", name: "XT Ship Management" },
     ].map((company, index) => (
       <div key={index} className="flex flex-col items-center" data-aos="zoom-in">
-        <img src={company.src} alt={company.name} className="w-24 h-auto mb-4" />
+        <Image src={company.src} alt={company.name} width={96} height={96} className="w-24 h-auto mb-4" />
         <p className="font-semibold text-blue-900 text-center">{company.name}</p>
       </div>
     ))}

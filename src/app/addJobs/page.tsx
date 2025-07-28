@@ -3,6 +3,16 @@ import React, { useState } from "react";
 
 const categories = ["Deck", "Engine", "Small Craft/Coastal"];
 
+const fleets = [
+  "Container",
+  "Bulker Carrier", 
+  "Tanker",
+  "Vehicle Carrier",
+  "General Cargo",
+  "LNG Carrier",
+  "LPG Carrier"
+];
+
 const positionsByCategory: Record<string, string[]> = {
   Deck: [
     "MASTER", "CHIEF OFFICER", "SECOND OFFICER", "THIRD OFFICER", "FOURTH OFFICER", "JUNIOR OFFICER",
@@ -21,12 +31,11 @@ const positionsByCategory: Record<string, string[]> = {
 export default function AddJobsPage() {
   const [form, setForm] = useState({
     title: positionsByCategory[categories[0]][0],
-    location: "",
     category: categories[0],
-    announcement: "",
-    yob: "",
-    dwt: "",
-    teuRef: "",
+    fleet: fleets[0],
+    minAge: "",
+    maxAge: "",
+    usVisaRequired: false,
     requirements: ""
   });
   const [success, setSuccess] = useState(false);
@@ -42,6 +51,10 @@ export default function AddJobsPage() {
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
     }
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({ ...prev, usVisaRequired: e.target.checked }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,20 +73,19 @@ export default function AddJobsPage() {
     setSuccess(true);
     setForm({
       title: positionsByCategory[categories[0]][0],
-      location: "",
       category: categories[0],
-      announcement: "",
-      yob: "",
-      dwt: "",
-      teuRef: "",
+      fleet: fleets[0],
+      minAge: "",
+      maxAge: "",
+      usVisaRequired: false,
       requirements: ""
     });
     setTimeout(() => setSuccess(false), 2000);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-black bg-gray-50 py-12 px-4">
-      <div className="bg-white mt-10 rounded shadow-lg p-8 w-full max-w-xl">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 text-black px-4">
+      <div className="bg-white rounded shadow-lg p-8 w-full max-w-xl">
         <h1 className="text-3xl font-bold mb-6 text-center">Add Job Opening</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -102,17 +114,30 @@ export default function AddJobsPage() {
               ))}
             </select>
           </div>
-          <div>
-            <label className="block font-semibold mb-1">Announcement</label>
+          {/* <div>
+            <label className="block font-semibold mb-1">Location</label>
             <input
-              name="announcement"
-              value={form.announcement}
+              name="location"
+              value={form.location}
               onChange={handleChange}
               required
               className="w-full border border-gray-300 rounded px-3 py-2"
             />
+          </div> */}
+          <div>
+            <label className="block font-semibold mb-1">Fleet</label>
+            <select
+              name="fleet"
+              value={form.fleet}
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            >
+              {fleets.map((fleet) => (
+                <option key={fleet} value={fleet}>{fleet}</option>
+              ))}
+            </select>
           </div>
-          <div className="flex gap-4">
+          {/* <div className="flex gap-4">
             <div className="flex-1">
               <label className="block font-semibold mb-1">YOB</label>
               <input
@@ -140,9 +165,43 @@ export default function AddJobsPage() {
                 className="w-full border border-gray-300 rounded px-3 py-2"
               />
             </div>
+          </div> */}
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label className="block font-semibold mb-1">Min Age</label>
+              <input
+                name="minAge"
+                type="number"
+                value={form.minAge}
+                onChange={handleChange}
+                placeholder="25"
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block font-semibold mb-1">Max Age</label>
+              <input
+                name="maxAge"
+                type="number"
+                value={form.maxAge}
+                onChange={handleChange}
+                placeholder="55"
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              name="usVisaRequired"
+              checked={form.usVisaRequired}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4"
+            />
+            <label className="font-semibold">US Visa Required</label>
           </div>
           <div>
-            <label className="block font-semibold mb-1">Requirements (one per line)</label>
+            <label className="block font-semibold mb-1">Any other Requirements</label>
             <textarea
               name="requirements"
               value={form.requirements}

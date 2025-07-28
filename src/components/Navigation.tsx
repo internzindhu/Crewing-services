@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from 'next/image'; 
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -34,7 +35,7 @@ export default function Navigation() {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center mt-7">
-            <img src="/logo4.png" alt="Logo" className="h-52 w-auto" />
+            <Image src="/logo4.png" alt="Logo" width={200} height={200} className="h-52 w-auto" />
           </Link>
 
           {/* Nav Items */}
