@@ -14,7 +14,7 @@ type Job = {
   link?: string;
 };
 
-export const hardcodedJobs = [
+const hardcodedJobs = [
   {
     title: "MASTER",
     link: "#",
