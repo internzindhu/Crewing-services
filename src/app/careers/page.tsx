@@ -5,12 +5,8 @@ import React, { useState, useEffect } from "react";
 
 type Job = {
   title: string;
-  location: string;
   category: string;
   fleet: string;
-  yob: string;
-  dwt: string;
-  teuRef: string;
   minAge: string;
   maxAge: string;
   usVisaRequired: boolean;
@@ -18,16 +14,12 @@ type Job = {
   link?: string;
 };
 
-const hardcodedJobs = [
+export const hardcodedJobs = [
   {
     title: "MASTER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "35",
     maxAge: "55",
     usVisaRequired: false,
@@ -39,13 +31,9 @@ const hardcodedJobs = [
   },
   {
     title: "CHIEF OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "30",
     maxAge: "50",
     usVisaRequired: false,
@@ -57,13 +45,9 @@ const hardcodedJobs = [
   },
   {
     title: "SECOND OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "25",
     maxAge: "45",
     usVisaRequired: false,
@@ -75,13 +59,9 @@ const hardcodedJobs = [
   },
   {
     title: "THIRD OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -93,13 +73,9 @@ const hardcodedJobs = [
   },
   {
     title: "FOURTH OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -111,13 +87,9 @@ const hardcodedJobs = [
   },
   {
     title: "JUNIOR OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "16",
     maxAge: "25",
     usVisaRequired: false,
@@ -129,13 +101,9 @@ const hardcodedJobs = [
   },
   {
     title: "ADMIN OFFICER",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -147,13 +115,9 @@ const hardcodedJobs = [
   },
   {
     title: "DECK CADET",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "16",
     maxAge: "20",
     usVisaRequired: false,
@@ -165,13 +129,9 @@ const hardcodedJobs = [
   },
   {
     title: "BOSUN",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -183,13 +143,9 @@ const hardcodedJobs = [
   },
   {
     title: "ABLE SEAMAN",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -201,13 +157,9 @@ const hardcodedJobs = [
   },
   {
     title: "ORDINARY SEAMAN",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "16",
     maxAge: "25",
     usVisaRequired: false,
@@ -219,13 +171,9 @@ const hardcodedJobs = [
   },
   {
     title: "DECK HAND",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "16",
     maxAge: "25",
     usVisaRequired: false,
@@ -237,13 +185,9 @@ const hardcodedJobs = [
   },
   {
     title: "CHIEF COOK",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -255,13 +199,9 @@ const hardcodedJobs = [
   },
   {
     title: "MESSMAN / STEWARD",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -273,13 +213,9 @@ const hardcodedJobs = [
   },
   {
     title: "GENERAL PURPOSE CREW",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -291,13 +227,9 @@ const hardcodedJobs = [
   },
   {
     title: "PUMP MAN",
-    location: "Odesa, Odessa Oblast, Ukraine",
     link: "#",
     category: "Deck",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -309,13 +241,9 @@ const hardcodedJobs = [
   },
   {
     title: "CHIEF ENGINEER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "35",
     maxAge: "55",
     usVisaRequired: false,
@@ -327,13 +255,9 @@ const hardcodedJobs = [
   },
   {
     title: "SECOND ENGINEER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "30",
     maxAge: "50",
     usVisaRequired: false,
@@ -345,13 +269,9 @@ const hardcodedJobs = [
   },
   {
     title: "ELECTRO OFFICER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "25",
     maxAge: "45",
     usVisaRequired: false,
@@ -363,13 +283,9 @@ const hardcodedJobs = [
   },
   {
     title: "THIRD ENGINEER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -381,13 +297,9 @@ const hardcodedJobs = [
   },
   {
     title: "FOURTH ENGINEER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -399,13 +311,9 @@ const hardcodedJobs = [
   },
   {
     title: "ENGINE CADET",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "16",
     maxAge: "20",
     usVisaRequired: false,
@@ -417,13 +325,9 @@ const hardcodedJobs = [
   },
   {
     title: "FITTER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -435,13 +339,9 @@ const hardcodedJobs = [
   },
   {
     title: "MOTORMAN / OILER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -453,13 +353,9 @@ const hardcodedJobs = [
   },
   {
     title: "ENGINE HAND",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -471,13 +367,9 @@ const hardcodedJobs = [
   },
   {
     title: "ELECTRO TECHNICAL RATING",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Engine",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -489,13 +381,9 @@ const hardcodedJobs = [
   },
   {
     title: "SC/COASTAL - MASTER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Small Craft/Coastal",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "20",
     maxAge: "40",
     usVisaRequired: false,
@@ -507,13 +395,9 @@ const hardcodedJobs = [
   },
   {
     title: "SC/COASTAL - ENGINEER",
-    location: "Szczecin, Poland",
     link: "#",
     category: "Small Craft/Coastal",
     fleet: "Container",
-    yob: "2024",
-    dwt: "18700",
-    teuRef: "1279/REF:380",
     minAge: "18",
     maxAge: "35",
     usVisaRequired: false,
@@ -551,12 +435,11 @@ export default function CareersPage() {
   // Merge admin jobs and hardcoded jobs (admin jobs first)
   const allJobs = [...adminJobs, ...hardcodedJobs];
 
-  // Filter jobs by keyword, location, and category
+  // Filter jobs by keyword and category
   const filteredJobs = allJobs.filter(
     (job) =>
       (selectedCategory === "All" || job.category === selectedCategory) &&
-      job.title.toLowerCase().includes(keyword.toLowerCase()) &&
-      job.location.toLowerCase().includes(location.toLowerCase())
+      job.title.toLowerCase().includes(keyword.toLowerCase())
   );
 
   return (
@@ -612,7 +495,7 @@ export default function CareersPage() {
       <div className="w-full max-w-2xl">
         {filteredJobs.map((job, idx) => {
           // Use allJobs for global index
-          const globalIdx = allJobs.findIndex(j => j.title === job.title && j.location === job.location);
+          const globalIdx = allJobs.findIndex(j => j.title === job.title);
           const isExpanded = expandedJobIndex === globalIdx;
           return (
             <div key={idx}>
@@ -630,33 +513,11 @@ export default function CareersPage() {
                   >
                     {job.title}
                   </a>
-                  {job.location && (
-                    <div className="flex items-center text-gray-500 text-sm mt-1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-4 h-4 mr-1"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                        />
-                      </svg>
-                      {job.location}
-                    </div>
-                  )}
+                  
                 </div>
                 <button
                   className="mt-2 md:mt-0 bg-[#295080] text-white px-6 py-2 rounded hover:bg-[#1d3a5a] font-medium transition"
+                  onClick={() => window.open('https://candidates.devmarinesl.com/registercandidate', '_blank')}
                 >
                   Apply
                 </button>
@@ -665,11 +526,6 @@ export default function CareersPage() {
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-2 text-gray-700 animate-fade-in">
                   <div className="space-y-4">
                     <div className="text-lg font-semibold">Fleet: {job.fleet || 'N/A'}</div>
-                    <div className="flex flex-wrap gap-8 text-base">
-                      <span>YOB: {job.yob || 'N/A'}</span>
-                      <span>DWT: {job.dwt || 'N/A'}</span>
-                      <span>TEU: {job.teuRef || 'N/A'}</span>
-                    </div>
                     <div className="flex flex-wrap gap-8 text-base">
                       <span>Age: {job.minAge || 'N/A'} - {job.maxAge || 'N/A'}</span>
                       <span>US Visa: {job.usVisaRequired ? 'Required' : 'Not Required'}</span>
@@ -692,7 +548,10 @@ export default function CareersPage() {
       <section className="bg-gray-50 w-full py-16 flex flex-col items-center justify-center text-center px-4">
         <h2 className="text-4xl md:text-3xl font-bold mb-4">Submit your application</h2>
         
-        <button className="bg-[#32ce47] text-white px-8 py-3 rounded font-semibold text-lg hover:bg-[#1d3a5a] transition">
+        <button 
+          className="bg-[#32ce47] text-white px-8 py-3 rounded font-semibold text-lg hover:bg-[#1d3a5a] transition"
+          onClick={() => window.open('https://candidates.devmarinesl.com/registercandidate', '_blank')}
+        >
           Apply now
         </button>
       </section>

@@ -21,7 +21,7 @@ export default function Home() {
   const slides = [
     {
       image: "/ship.jpg",
-      heading: "NAVIGATING EXCELENCE, EMPOWERING SEAFARERS",
+      heading: "Manning the Helm of Maritime Excellence.",
     },
     {
       image: "/ship9.jpg",
@@ -104,15 +104,14 @@ export default function Home() {
           Welcome to Zindhu Crewing Services
         </h2>
         <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-        With a legacy of over two decades in maritime excellence, Zindhu Crewing Services (formerly Dev Marine Agencies) stands as a trusted name in global ship manning and crewing solutions. Backed by a dynamic pool of over 3,000 skilled seafarers and a strong commitment to quality, we ensure vessels are staffed with experienced professionals who uphold the highest standards of safety and operational efficiency at sea.
-        </p>
+        Trusted partners in crew management, port operations, technical support, underwater engineering, and maritime training — delivering seamless solutions for global shipping.        </p>
 
         {/* Our Services Section */}
 <div className="" data-aos="fade-up">
   <h2 className="text-4xl font-bold  text-center  mb-4">Our Services</h2>
   <p className="text-lg text-gray-700 mb-10 leading-relaxed text-center max-w-3xl mx-auto">
-    Explore our wide range of marine solutions including crewing, training, and vessel management.
-  </p>
+  Integrated solutions for a changing maritime world.
+  At Zindhu Crewing Services, we provide a complete range of services designed to keep your vessels manned, compliant, efficient, and operational — wherever they sail.  </p>
 
   <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
     {[
@@ -128,24 +127,24 @@ export default function Home() {
         title: "Maritime Training",
         excerpt: "Comprehensive programs to prepare crews for global standards."
       },
-      {
-        id: 3,
-        imageUrl: "/ship.jpg",
-        title: "Vessel Management",
-        excerpt: "Reliable and compliant management for a wide range of fleets."
-      },
+      // {
+      //   id: 3,
+      //   imageUrl: "/ship.jpg",
+      //   title: "Vessel Management",
+      //   excerpt: "Reliable and compliant management for a wide range of fleets."
+      // },
       {
         id: 4,
         imageUrl: "/ship2.jpg",
         title: "Offshore Support",
         excerpt: "Trusted offshore staffing and logistical support services."
       },
-      {
-        id: 5,
-        imageUrl: "/ship3.jpg",
-        title: "Consulting Services",
-        excerpt: "Strategic maritime consulting for efficient operations."
-      },
+      // {
+      //   id: 5,
+      //   imageUrl: "/ship3.jpg",
+      //   title: "Consulting Services",
+      //   excerpt: "Strategic maritime consulting for efficient operations."
+      // },
       {
         id: 6,
         imageUrl: "/ship6.jpg",
